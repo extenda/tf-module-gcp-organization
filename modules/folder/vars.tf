@@ -1,10 +1,10 @@
 variable name {
-  type = string
+  type        = string
   description = "Name of GCP Folder to create"
 }
 
 variable parent_id {
-  type = string
+  type        = string
   description = "Parent ID in the folder of `folders/<folder_id>` or `organizations/<org_id>` in which to create the GCP Folder"
 }
 
@@ -19,11 +19,11 @@ variable gsuite_group_email {
 }
 
 variable iam_role {
-  type = string
+  type        = string
   description = "The IAM Role to grant the Group we bind to the GCP Folder"
 }
 
 variable domain {
-  type = string
+  type        = string
   description = "Domain name of the Organization in which to create the Folder."
 }

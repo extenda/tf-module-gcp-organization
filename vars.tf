@@ -21,7 +21,7 @@ variable impersonated_user_email {
 }
 
 variable domain {
-  type = string
+  type        = string
   description = "Domain name of the Organization in which to create the Folder."
 }
 

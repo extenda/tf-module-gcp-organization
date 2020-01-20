@@ -1,6 +1,6 @@
 provider "google" {
-  version     = "~> 2.7"
-  region      = "europe-west-1"
+  version = "~> 2.7"
+  region  = "europe-west-1"
 }
 
 ## GSuite Provider must be installed manually. 
