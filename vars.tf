@@ -27,5 +27,12 @@ variable domain {
 
 variable gsuite_group_name {
   type        = string
-  description = "Name of GSuite Group"
+  default     = ""
+  description = "Name of GSuite Group. If none provided then no GSuite group will be created nor bound to the Folder."
+}
+
+variable mock_gsuite_group_name {
+  type        = string
+  default     = "placeholder-123"
+  description = "Due limitations with Terraform Count and data resource lookups we must use a mock email address instead of an empty value."
 }

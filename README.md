@@ -49,19 +49,20 @@ This will create a folder named `bar` within the Folder with Id `folders/1234567
 
 ## Inputs
 
-| Name                      | Description                                                                                                                             | Type     | Default                                | Required |
-|:--------------------------|:----------------------------------------------------------------------------------------------------------------------------------------|:---------|:---------------------------------------|:--------:|
-| domain                    | Domain name of the Organization in which to create the Folder.                                                                          | `string` | n/a                                    |   yes    |
-| folder\_iam\_role         | The IAM Role to grant the Group we bind to the GCP Folder                                                                               | `string` | `"roles/resourcemanager.folderViewer"` |    no    |
-| folder\_name              | The name of the GCP Folder to create                                                                                                    | `string` | n/a                                    |   yes    |
-| folder\_parent\_id        | The ID of the Parent Folder in which to create the new Folder. If not provided, Folder will be created at the root of the Organization. | `string` | `""`                                   |    no    |
-| gsuite\_group\_name       | Name of GSuite Group                                                                                                                    | `string` | n/a                                    |   yes    |
-| impersonated\_user\_email | Email account of GSuite Admin user to impersonate for creating GSuite Groups. If not provided, will default to `terraform@<var.domain>` | `string` | `""`                                   |    no    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:-----:|
+| domain | Domain name of the Organization in which to create the Folder. | `string` | n/a | yes |
+| folder\_iam\_role | The IAM Role to grant the Group we bind to the GCP Folder | `string` | `"roles/resourcemanager.folderViewer"` | no |
+| folder\_name | The name of the GCP Folder to create | `string` | n/a | yes |
+| folder\_parent\_id | The ID of the Parent Folder in which to create the new Folder. If not provided, Folder will be created at the root of the Organization. | `string` | `""` | no |
+| gsuite\_group\_name | Name of GSuite Group. If none provided then no GSuite group will be created nor bound to the Folder. | `string` | `""` | no |
+| impersonated\_user\_email | Email account of GSuite Admin user to impersonate for creating GSuite Groups. If not provided, will default to `terraform@<var.domain>` | `string` | `""` | no |
+| mock\_gsuite\_group\_name | Due limitations with Terraform Count and data resource lookups we must use a mock email address instead of an empty value. | `string` | `"placeholder-123"` | no |
 
 ## Outputs
 
-| Name         | Description                               |
-|:-------------|:------------------------------------------|
-| folder\_id   | Folder ID of the created GCP Folder       |
+| Name | Description |
+|------|-------------|
+| folder\_id | Folder ID of the created GCP Folder |
 | group\_email | Email address of the created GSuite Group |
-| group\_name  | Name of the created GSuite Group          |
+| group\_name | Name of the created GSuite Group |

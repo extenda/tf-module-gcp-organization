@@ -8,14 +8,14 @@ variable parent_id {
   description = "Parent ID in the folder of `folders/<folder_id>` or `organizations/<org_id>` in which to create the GCP Folder"
 }
 
-variable gsuite_group_name {
-  type        = string
-  description = "Name of GSuite Group"
-}
-
 variable gsuite_group_email {
   type        = string
   description = "Email address of GSuite Group"
+}
+
+variable mock_gsuite_group_name {
+  type        = string
+  description = "Due limitations with Terraform Count and data resource lookups we must use a mock email address instead of an empty value."
 }
 
 variable iam_role {
