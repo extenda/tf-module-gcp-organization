@@ -10,6 +10,7 @@ module group {
   name      = local.gsuite_group_name
   mock_name = var.mock_gsuite_group_name
   email     = local.gsuite_group_email
+  members   = var.gsuite_group_members
 }
 
 module folder {
