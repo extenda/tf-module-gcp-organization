@@ -13,7 +13,7 @@ variable email {
   description = "Email address of GSuite Group"
 }
 
-variable "members" {
+variable members {
   type = object({
     groups = list(object(
       {
