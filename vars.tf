@@ -36,3 +36,20 @@ variable mock_gsuite_group_name {
   default     = "placeholder-123"
   description = "Due limitations with Terraform Count and data resource lookups we must use a mock email address instead of an empty value."
 }
+
+variable gsuite_group_members {
+  type = object({
+    groups = list(object(
+      {
+        email = string
+      }
+    ))
+    users = list(object(
+      {
+        name  = string
+        email = string
+      }
+    ))
+  })
+  description = "Users and Groups to add as GSuite Tribe or Clan Members"
+}
