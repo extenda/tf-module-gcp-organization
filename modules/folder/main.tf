@@ -1,5 +1,6 @@
 locals {
   iam_roles = concat([var.folder_view_iam_role], var.iam_roles)
+  lead_iam_roles = concat([var.iam_role], var.gsuite_lead_group_roles)
 
   # For details on this solution for producing a map/object from nested loop to support for_each in resource block
   # see https://github.com/hashicorp/terraform/issues/22263#issuecomment-581205359
@@ -42,6 +43,19 @@ resource "google_folder_iam_binding" "local" {
   members = [
     "group:${var.gsuite_group_email}",
   ]
+}
+
+resource "google_folder_iam_binding" "lead" {
+  for_each = {
+    for key, value in local.lead_iam_roles :
+    key => key
+    if var.gsuite_lead_group_email != "${var.mock_gsuite_group_name}@${var.domain}"
+  }
+  folder = google_folder.local.id
+  members = [
+    "group:${var.gsuite_lead_group_email}",
+  ]
+  role = local.lead_iam_roles[each.value]
 }
 
 resource "google_folder_iam_binding" "additional" {

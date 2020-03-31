@@ -97,3 +97,11 @@ variable gsuite_lead_group_members {
   }
   description = "Users and Groups to add as GSuite Tribe or Clan Lead Members"
 }
+
+variable gsuite_lead_group_roles {
+  type = list(string)
+  default = [
+    "roles/secretmanager.admin",
+  ]
+  description = "List of IAM Roles to additionally grant the Lead GSuite group"
+}

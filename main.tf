@@ -15,20 +15,6 @@ module group {
   members   = var.gsuite_group_members
 }
 
-module folder {
-  source = "./modules/folder"
-
-  name      = var.folder_name
-  parent_id = var.folder_parent_id
-  domain    = var.domain
-
-  folder_view_iam_role        = var.folder_view_iam_role
-  iam_roles                   = var.folder_iam_roles
-  additional_iam_member_bindings = var.folder_additional_iam_member_bindings
-  gsuite_group_email          = local.gsuite_group_email
-  mock_gsuite_group_name      = var.mock_gsuite_group_name
-}
-
 module lead_group {
   source = "./modules/group"
 
@@ -36,4 +22,20 @@ module lead_group {
   mock_name = var.mock_gsuite_group_name
   email     = local.gsuite_lead_group_email
   members   = var.gsuite_lead_group_members
+}
+
+module folder {
+  source = "./modules/folder"
+
+  name      = var.folder_name
+  parent_id = var.folder_parent_id
+  domain    = var.domain
+
+  folder_view_iam_role   = var.folder_view_iam_role
+  iam_roles              = var.folder_iam_roles
+  gsuite_group_email     = local.gsuite_group_email
+  mock_gsuite_group_name = var.mock_gsuite_group_name
+
+  gsuite_lead_group_email = local.gsuite_lead_group_email
+  gsuite_lead_group_roles = var.gsuite_lead_group_roles
 }

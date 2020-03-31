@@ -37,3 +37,13 @@ variable domain {
   type        = string
   description = "Domain name of the Organization in which to create the Folder."
 }
+
+variable gsuite_lead_group_email {
+  type        = string
+  description = "Email address of Lead GSuite Group"
+}
+
+variable gsuite_lead_group_roles {
+  type        = list(string)
+  description = "List of IAM Roles to additionally grant the Lead GSuite group"
+}

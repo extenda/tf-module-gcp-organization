@@ -63,8 +63,8 @@ If `create_lead_gsuite_group` set to `true` then will also create a `*-lead` gro
 | impersonated\_user\_email | Email account of GSuite Admin user to impersonate for creating GSuite Groups. If not provided, will default to `terraform@<var.domain>` | `string` | `""` | no |
 | mock\_gsuite\_group\_name | Due limitations with Terraform Count and data resource lookups we must use a mock email address instead of an empty value. | `string` | `"placeholder-123"` | no |
 | create\_lead\_gsuite\_group | If the Tribe or Clan Lead GSuite group should be created | `string` | `false` | no |
-| gsuite\_lead\_group\_members | Users and Groups to add to Lead GSuite group | the same as gsuite_group_members | `{ groups = [], users  = [] }` | no |
-| gsuite\_lead\_group\_roles | List of roles additionally granted to Lead GSuite group | `[]` | no |
+| gsuite\_lead\_group\_members | Users and Groups to add Lead GSuite group | the same as gsuite_group_members | `{ groups = [], users  = [] }` | no |
+| gsuite\_lead\_group\_roles | List of IAM Roles to additionally grant the Lead GSuite group | `["roles/secretmanager.admin"]` | no |
 
 ## Outputs
 
@@ -74,4 +74,4 @@ If `create_lead_gsuite_group` set to `true` then will also create a `*-lead` gro
 | group\_email | Email address of the created GSuite Group |
 | group\_name | Name of the created GSuite Group |
 | lead\_group\_email | Email address of the created GSuite Lead Group |
-/ lead_group_name | Name of the created GSuite Lead Group |
+| lead\_group\_name | Name of the created GSuite Lead Group |
