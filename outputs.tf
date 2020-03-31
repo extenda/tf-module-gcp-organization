@@ -12,3 +12,13 @@ output group_name {
   value       = module.group.name
   description = "Name of the created GSuite Group"
 }
+
+output lead_group_email {
+  value       = module.lead_group.email
+  description = "Email address of the created GSuite Lead Group"
+}
+
+output lead_group_name {
+  value       = module.lead_group.name
+  description = "Name of the created GSuite Lead Group"
+}

@@ -70,3 +70,30 @@ variable gsuite_group_members {
   }
   description = "Users and Groups to add as GSuite Tribe or Clan Members"
 }
+
+variable create_lead_gsuite_group {
+  type        = bool
+  default     = false
+  description = "If the Tribe or Clan Lead GSuite group should be created"
+}
+
+variable gsuite_lead_group_members {
+  type = object({
+    groups = list(object(
+      {
+        email = string
+      }
+    ))
+    users = list(object(
+      {
+        name  = string
+        email = string
+      }
+    ))
+  })
+  default = {
+    groups = [],
+    users  = []
+  }
+  description = "Users and Groups to add as GSuite Tribe or Clan Lead Members"
+}

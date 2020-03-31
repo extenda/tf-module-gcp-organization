@@ -46,6 +46,7 @@ module organization {
 ```
 This will create a folder named `bar` within the Folder with Id `folders/12345678` GCP Org. In addition, a GSuite Group named `foo-bar` with email `foo-bar@example.com` will be created and bound to the Folder with IAM Role `roles/resourcemanager.folderViewer`.
 
+If `create_lead_gsuite_group` set to `true` then will also create a `*-lead` group which members will have additional permissions specified in `gsuite_lead_group_roles`
 
 ## Inputs
 
@@ -61,6 +62,9 @@ This will create a folder named `bar` within the Folder with Id `folders/1234567
 | gsuite\_group\_name | Name of GSuite Group. If none provided then no GSuite group will be created nor bound to the Folder. | `string` | `""` | no |
 | impersonated\_user\_email | Email account of GSuite Admin user to impersonate for creating GSuite Groups. If not provided, will default to `terraform@<var.domain>` | `string` | `""` | no |
 | mock\_gsuite\_group\_name | Due limitations with Terraform Count and data resource lookups we must use a mock email address instead of an empty value. | `string` | `"placeholder-123"` | no |
+| create\_lead\_gsuite\_group | If the Tribe or Clan Lead GSuite group should be created | `string` | `false` | no |
+| gsuite\_lead\_group\_members | Users and Groups to add to Lead GSuite group | the same as gsuite_group_members | `{ groups = [], users  = [] }` | no |
+| gsuite\_lead\_group\_roles | List of roles additionally granted to Lead GSuite group | `[]` | no |
 
 ## Outputs
 
@@ -69,3 +73,5 @@ This will create a folder named `bar` within the Folder with Id `folders/1234567
 | folder\_id | Folder ID of the created GCP Folder |
 | group\_email | Email address of the created GSuite Group |
 | group\_name | Name of the created GSuite Group |
+| lead\_group\_email | Email address of the created GSuite Lead Group |
+/ lead_group_name | Name of the created GSuite Lead Group |
