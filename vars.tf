@@ -51,5 +51,9 @@ variable gsuite_group_members {
       }
     ))
   })
+  default = {
+    groups = [],
+    users  = []
+  }
   description = "Users and Groups to add as GSuite Tribe or Clan Members"
 }
