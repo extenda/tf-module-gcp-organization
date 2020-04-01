@@ -11,7 +11,7 @@ resource "gsuite_group" "local" {
 }
 
 resource "gsuite_group_members" "local_users" {
-  count = var.name != var.mock_name && (data.gsuite_group.local.name == null || data.gsuite_group.local.description == "Created by Terraform") ? 1 : 0
+  count = var.name != var.mock_name && (data.gsuite_group.local.name == null || data.gsuite_group.local.description == "Created by Terraform") && (length(var.members.groups) > 0 || length(var.members.users) > 0)? 1 : 0
   group_email = "${gsuite_group.local[0].email}"
 
   dynamic member {
