@@ -9,9 +9,16 @@ variable folder_parent_id {
   description = "The ID of the Parent Folder in which to create the new Folder. If not provided, Folder will be created at the root of the Organization."
 }
 
-variable folder_iam_role {
+variable folder_view_iam_role {
+  type        = string
   default     = "roles/resourcemanager.folderViewer"
-  description = "The IAM Role to grant the Group we bind to the GCP Folder"
+  description = "Basic IAM Role to able view folders"
+}
+
+variable folder_iam_roles {
+  type        = list(string)
+  default     = []
+  description = "List of IAM Roles to grant the Group we bind to the GCP Folder"
 }
 
 variable impersonated_user_email {
