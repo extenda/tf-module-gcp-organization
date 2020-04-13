@@ -52,7 +52,7 @@ This will create a folder named `bar` within the Folder with Id `folders/1234567
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:-----:|
 | domain | Domain name of the Organization in which to create the Folder. | `string` | n/a | yes |
-| folder\_iam\_role | List of IAM Roles to grant the Group we bind to the GCP Folder | `list(string)` | `[]` | no |
+| folder\_iam\_roles | List of IAM Roles to grant the Group we bind to the GCP Folder | `list(string)` | `[]` | no |
 | folder\_view\_iam\_role | Basic IAM Role to able view folders | `string` | `"roles/resourcemanager.folderViewer"` | no |
 | folder\_name | The name of the GCP Folder to create | `string` | n/a | yes |
 | folder\_parent\_id | The ID of the Parent Folder in which to create the new Folder. If not provided, Folder will be created at the root of the Organization. | `string` | `""` | no |
