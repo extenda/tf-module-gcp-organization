@@ -20,7 +20,7 @@ variable mock_gsuite_group_name {
 
 variable folder_view_iam_role {
   type        = string
-  description = "Basic IAM Role to able view folders"
+  description = "Basic IAM Role to be able to view folders"
 }
 
 variable iam_roles {

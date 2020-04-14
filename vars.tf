@@ -12,7 +12,7 @@ variable folder_parent_id {
 variable folder_view_iam_role {
   type        = string
   default     = "roles/resourcemanager.folderViewer"
-  description = "Basic IAM Role to able view folders"
+  description = "Basic IAM Role to be able to view folders"
 }
 
 variable folder_iam_roles {
