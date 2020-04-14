@@ -18,9 +18,14 @@ variable mock_gsuite_group_name {
   description = "Due limitations with Terraform Count and data resource lookups we must use a mock email address instead of an empty value."
 }
 
-variable iam_role {
+variable folder_view_iam_role {
   type        = string
-  description = "The IAM Role to grant the Group we bind to the GCP Folder"
+  description = "Basic IAM Role to be able to view folders"
+}
+
+variable iam_roles {
+  type        = list(string)
+  description = "The IAM Roles to grant the Group we bind to the GCP Folder"
 }
 
 variable domain {

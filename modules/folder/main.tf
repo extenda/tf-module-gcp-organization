@@ -1,3 +1,7 @@
+locals {
+  iam_roles = concat([var.folder_view_iam_role], var.iam_roles)
+}
+
 data "google_organization" "org" {
   domain = var.domain
 }
@@ -8,10 +12,14 @@ resource "google_folder" "local" {
 }
 
 resource "google_folder_iam_binding" "local" {
-  count = var.gsuite_group_email != "${var.mock_gsuite_group_name}@${var.domain}" ? 1 : 0
+  for_each = {
+    for key, value in local.iam_roles :
+    key => key
+    if var.gsuite_group_email != "${var.mock_gsuite_group_name}@${var.domain}"
+  }
 
   folder = google_folder.local.id
-  role   = var.iam_role
+  role   = local.iam_roles[each.value]
 
   members = [
     "group:${var.gsuite_group_email}",

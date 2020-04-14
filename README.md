@@ -52,7 +52,8 @@ This will create a folder named `bar` within the Folder with Id `folders/1234567
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:-----:|
 | domain | Domain name of the Organization in which to create the Folder. | `string` | n/a | yes |
-| folder\_iam\_role | The IAM Role to grant the Group we bind to the GCP Folder | `string` | `"roles/resourcemanager.folderViewer"` | no |
+| folder\_iam\_roles | List of IAM Roles to grant the Group we bind to the GCP Folder | `list(string)` | `[]` | no |
+| folder\_view\_iam\_role | Basic IAM Role to be able to view folders | `string` | `"roles/resourcemanager.folderViewer"` | no |
 | folder\_name | The name of the GCP Folder to create | `string` | n/a | yes |
 | folder\_parent\_id | The ID of the Parent Folder in which to create the new Folder. If not provided, Folder will be created at the root of the Organization. | `string` | `""` | no |
 | gsuite\_group\_members | Users and Groups to add as GSuite Tribe or Clan Members | <pre>object({<br>    groups = list(object(<br>      {<br>        email = string<br>      }<br>    ))<br>    users = list(object(<br>      {<br>        name  = string<br>        email = string<br>      }<br>    ))<br>  })<br></pre> | n/a | yes |
