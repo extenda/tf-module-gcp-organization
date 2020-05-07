@@ -28,6 +28,11 @@ variable iam_roles {
   description = "The IAM Roles to grant the Group we bind to the GCP Folder"
 }
 
+variable additional_iam_bindings {
+  type = map(list(string))
+  description = "Map of role (key) and list of members (value) to add the IAM policies/bindings"
+}
+
 variable domain {
   type        = string
   description = "Domain name of the Organization in which to create the Folder."

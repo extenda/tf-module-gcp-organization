@@ -20,8 +20,9 @@ module folder {
   parent_id = var.folder_parent_id
   domain    = var.domain
 
-  folder_view_iam_role   = var.folder_view_iam_role
-  iam_roles              = var.folder_iam_roles
-  gsuite_group_email     = local.gsuite_group_email
-  mock_gsuite_group_name = var.mock_gsuite_group_name
+  folder_view_iam_role    = var.folder_view_iam_role
+  iam_roles               = var.folder_iam_roles
+  additional_iam_bindings = var.folder_additional_iam_bindings
+  gsuite_group_email      = local.gsuite_group_email
+  mock_gsuite_group_name  = var.mock_gsuite_group_name
 }

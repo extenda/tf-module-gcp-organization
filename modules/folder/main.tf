@@ -25,3 +25,12 @@ resource "google_folder_iam_binding" "local" {
     "group:${var.gsuite_group_email}",
   ]
 }
+
+module "additional_iam_bindings" {
+  source  = "terraform-google-modules/iam/google//modules/folders_iam"
+  version = "6.1.0"
+  
+  mode     = "additive"
+  folders  = [google_folder.local.id]
+  bindings = var.additional_iam_bindings
+}
