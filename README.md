@@ -52,11 +52,12 @@ This will create a folder named `bar` within the Folder with Id `folders/1234567
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:-----:|
 | domain | Domain name of the Organization in which to create the Folder. | `string` | n/a | yes |
+| folder\_additional\_iam\_member\_bindings | Additional IAM Members who will be granted one or more Roles to the Folder. See examples for expected variable structure. | `map(list(string))` | `{}` | no |
 | folder\_iam\_roles | List of IAM Roles to grant the Group we bind to the GCP Folder | `list(string)` | `[]` | no |
-| folder\_view\_iam\_role | Basic IAM Role to be able to view folders | `string` | `"roles/resourcemanager.folderViewer"` | no |
 | folder\_name | The name of the GCP Folder to create | `string` | n/a | yes |
 | folder\_parent\_id | The ID of the Parent Folder in which to create the new Folder. If not provided, Folder will be created at the root of the Organization. | `string` | `""` | no |
-| gsuite\_group\_members | Users and Groups to add as GSuite Tribe or Clan Members | <pre>object({<br>    groups = list(object(<br>      {<br>        email = string<br>      }<br>    ))<br>    users = list(object(<br>      {<br>        name  = string<br>        email = string<br>      }<br>    ))<br>  })<br></pre> | n/a | yes |
+| folder\_view\_iam\_role | Basic IAM Role to be able to view folders | `string` | `"roles/resourcemanager.folderViewer"` | no |
+| gsuite\_group\_members | Users and Groups to add as GSuite Tribe or Clan Members | <pre>object({<br>    groups = list(object(<br>      {<br>        email = string<br>      }<br>    ))<br>    users = list(object(<br>      {<br>        name  = string<br>        email = string<br>      }<br>    ))<br>  })<br></pre> | <pre>{<br>  "groups": [],<br>  "users": []<br>}<br></pre> | no |
 | gsuite\_group\_name | Name of GSuite Group. If none provided then no GSuite group will be created nor bound to the Folder. | `string` | `""` | no |
 | impersonated\_user\_email | Email account of GSuite Admin user to impersonate for creating GSuite Groups. If not provided, will default to `terraform@<var.domain>` | `string` | `""` | no |
 | mock\_gsuite\_group\_name | Due limitations with Terraform Count and data resource lookups we must use a mock email address instead of an empty value. | `string` | `"placeholder-123"` | no |

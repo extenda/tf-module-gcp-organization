@@ -25,4 +25,16 @@ module organization {
       }
     ]
   }
+
+  folder_additional_iam_member_bindings = {
+    "serviceAccount:my-service-account@my-project.iam.gserviceaccount.com" = [
+      "roles/compute.networkAdmin",
+      "roles/compute.xpnAdmin",
+      "roles/container.admin"
+    ]
+    "group:gcp-something@extendaretail.com" = [
+      "roles/resourceManager.folderAdmin",
+      "roles/container.admin"
+    ]
+  }
 }

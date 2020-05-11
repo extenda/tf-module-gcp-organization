@@ -21,6 +21,12 @@ variable folder_iam_roles {
   description = "List of IAM Roles to grant the Group we bind to the GCP Folder"
 }
 
+variable folder_additional_iam_member_bindings {
+  type        = map(list(string))
+  default     = {}
+  description = "Additional IAM Members who will be granted one or more Roles to the Folder. See examples for expected variable structure."
+}
+
 variable impersonated_user_email {
   type        = string
   default     = ""
