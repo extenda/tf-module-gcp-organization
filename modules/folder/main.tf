@@ -32,7 +32,7 @@ resource "google_folder" "local" {
 resource "google_folder_iam_binding" "local" {
   for_each = {
     for key, value in local.iam_roles :
-    key => key
+    value => key
     if var.gsuite_group_email != "${var.mock_gsuite_group_name}@${var.domain}"
   }
 
