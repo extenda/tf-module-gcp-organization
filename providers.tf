@@ -2,8 +2,14 @@ terraform {
   # The configuration for this backend will be filled in by Terragrunt
   required_version = ">= 0.12.18"
   required_providers {
-    google = "~> 2.7"
-    gsuite = "~> 0.1.35"
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 2.7"
+    }
+    gsuite = {
+      source = "DeviaVir/gsuite"
+      version = "~> 0.1.35"
+    }
   }
 }
 
@@ -22,6 +28,4 @@ provider "gsuite" {
     "https://www.googleapis.com/auth/admin.directory.group",
     "https://www.googleapis.com/auth/admin.directory.group.member"
   ]
-
-  version = "~> 0.1.35"
 }
