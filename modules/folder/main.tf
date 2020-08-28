@@ -29,7 +29,7 @@ resource "google_folder" "local" {
   parent       = coalesce(var.parent_id, data.google_organization.org.name)
 }
 
-resource "google_folder_iam_binding" "local" {
+resource "google_folder_iam_member" "local" {
   for_each = {
     for key, value in local.iam_roles :
     value => key
@@ -38,19 +38,13 @@ resource "google_folder_iam_binding" "local" {
 
   folder = google_folder.local.id
   role   = local.iam_roles[each.value]
-
-  members = [
-    "group:${var.gsuite_group_email}",
-  ]
+  member = "group:${var.gsuite_group_email}"
 }
 
-resource "google_folder_iam_binding" "additional" {
+resource "google_folder_iam_member" "additional" {
   for_each = local.additional_iam_member_bindings_association_map
 
   folder = google_folder.local.id
   role   = each.value.role
-
-  members = [
-    each.value.member
-  ]
+  member = each.value.member
 }
