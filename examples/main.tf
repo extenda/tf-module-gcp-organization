@@ -2,7 +2,7 @@ module organization {
   source = "../"
 
   folder_name       = "foo"
-  domain            = "extenda.io"
+  domain            = "extendaretail.com"
   gsuite_group_name = "foo"
 
   gsuite_group_members = {
