@@ -37,4 +37,13 @@ module organization {
       "roles/container.admin"
     ]
   }
+
+  roles_map = [
+    {
+      project = "test-project"
+      iam_roles = [
+        "roles/container.admin"
+      ]
+    }
+  ]
 }
