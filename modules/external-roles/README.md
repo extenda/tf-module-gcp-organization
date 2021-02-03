@@ -14,8 +14,6 @@ The module accepts a list of projects and roles that will be added to thr GSuite
   ]
 ```
 
-
-
 ## Providers
 
 | Name | Version |
