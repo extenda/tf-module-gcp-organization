@@ -70,3 +70,12 @@ variable gsuite_group_members {
   }
   description = "Users and Groups to add as GSuite Tribe or Clan Members"
 }
+
+variable roles_map {
+  description = "List of the roles in the external projects"
+  type = list(object({
+    project   = string
+    iam_roles = list(string)
+  }))
+  default = []
+}
