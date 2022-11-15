@@ -8,13 +8,12 @@ terraform {
     }
     gsuite = {
       source = "DeviaVir/gsuite"
-      version = "~> 0.1.35"
+      version = "~> 0.1.62"
     }
   }
 }
 
 provider "google" {
-  version = "~> 2.7"
   region  = "europe-west-1"
 }
 

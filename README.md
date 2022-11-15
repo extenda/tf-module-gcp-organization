@@ -57,6 +57,7 @@ This will create a folder named `bar` within the Folder with Id `folders/1234567
 | folder\_name | The name of the GCP Folder to create | `string` | n/a | yes |
 | folder\_parent\_id | The ID of the Parent Folder in which to create the new Folder. If not provided, Folder will be created at the root of the Organization. | `string` | `""` | no |
 | folder\_view\_iam\_role | Basic IAM Role to be able to view folders | `string` | `"roles/resourcemanager.folderViewer"` | no |
+| group\_aliases | A list of aliases for the group | list(string) | `[]` | no |
 | gsuite\_group\_members | Users and Groups to add as GSuite Tribe or Clan Members | <pre>object({<br>    groups = list(object(<br>      {<br>        email = string<br>      }<br>    ))<br>    users = list(object(<br>      {<br>        name  = string<br>        email = string<br>      }<br>    ))<br>  })<br></pre> | <pre>{<br>  "groups": [],<br>  "users": []<br>}<br></pre> | no |
 | gsuite\_group\_name | Name of GSuite Group. If none provided then no GSuite group will be created nor bound to the Folder. | `string` | `""` | no |
 | impersonated\_user\_email | Email account of GSuite Admin user to impersonate for creating GSuite Groups. If not provided, will default to `terraform@<var.domain>` | `string` | `""` | no |

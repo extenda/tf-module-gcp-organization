@@ -5,6 +5,7 @@ data "gsuite_group" "local" {
 resource "gsuite_group" "local" {
   count = var.name != var.mock_name && (data.gsuite_group.local.name == null || data.gsuite_group.local.description == "Created by Terraform") ? 1 : 0
 
+  aliases     = var.group_aliases
   email       = var.email
   name        = var.name
   description = "Created by Terraform"
