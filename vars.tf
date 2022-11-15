@@ -79,3 +79,9 @@ variable roles_map {
   }))
   default = []
 }
+
+variable group_aliases {
+  type        = list(string)
+  default     = []
+  description = "A list of aliases for the group"
+}

@@ -1,10 +1,10 @@
 variable name {
-  type = string
+  type        = string
   description = "Name of GSuite Group to create"
 }
 
 variable mock_name {
-  type = string
+  type        = string
   description = "Mock name of GSuite Group"
 }
 
@@ -28,4 +28,9 @@ variable members {
     ))
   })
   description = "Users and Groups to add as GSuite Tribe or Clan Members"
+}
+
+variable group_aliases {
+  type        = list(string)
+  description = "A list of aliases for the group"
 }
