@@ -21,17 +21,17 @@ module folder {
   parent_id = var.folder_parent_id
   domain    = var.domain
 
-  folder_view_iam_role        = var.folder_view_iam_role
-  iam_roles                   = var.folder_iam_roles
+  folder_view_iam_role           = var.folder_view_iam_role
+  iam_roles                      = var.folder_iam_roles
   additional_iam_member_bindings = var.folder_additional_iam_member_bindings
-  gsuite_group_email          = local.gsuite_group_email
-  mock_gsuite_group_name      = var.mock_gsuite_group_name
+  gsuite_group_email             = local.gsuite_group_email
+  mock_gsuite_group_name         = var.mock_gsuite_group_name
 }
 
 module external-roles {
   source = "./modules/external-roles"
 
-  domain              = var.domain
-  roles_map           = var.roles_map
-  gsuite_group_name   = var.gsuite_group_name
+  domain            = var.domain
+  roles_map         = var.roles_map
+  gsuite_group_name = var.gsuite_group_name
 }

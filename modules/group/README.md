@@ -2,7 +2,7 @@
 
 | Name | Version |
 |------|---------|
-| gsuite | n/a |
+| googleworkspace | ~> 0.7.0 |
 
 ## Inputs
 

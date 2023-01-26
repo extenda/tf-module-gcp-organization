@@ -85,3 +85,8 @@ variable group_aliases {
   default     = []
   description = "A list of aliases for the group"
 }
+
+variable customer_id {
+  type        = string
+  description = "The customer id provided with your Google Workspace subscription. It is found in the admin console under Account Settings."
+}
