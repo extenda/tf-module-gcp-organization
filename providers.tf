@@ -6,9 +6,9 @@ terraform {
       source  = "hashicorp/google"
       version = "~> 2.7"
     }
-    gsuite = {
-      source = "DeviaVir/gsuite"
-      version = "~> 0.1.62"
+    googleworkspace = {
+      source  = "hashicorp/googleworkspace"
+      version = "~> 0.7.0"
     }
   }
 }
@@ -17,11 +17,9 @@ provider "google" {
   region  = "europe-west-1"
 }
 
-## GSuite Provider must be installed manually. 
-## Instructions can be found here https://github.com/DeviaVir/terraform-provider-gsuite#installation
-provider "gsuite" {
+provider "googleworkspace" {
   impersonated_user_email = local.impersonated_user_email
-
+  customer_id             = var.customer_id
   oauth_scopes = [
     "https://www.googleapis.com/auth/admin.directory.user",
     "https://www.googleapis.com/auth/admin.directory.group",

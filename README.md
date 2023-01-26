@@ -11,15 +11,13 @@ An Extenda Retail maintained Terraform Module, which is intended to manage speci
 | Name   | Version   |
 |:-------|:----------|
 | google | ~> 2.7    |
-| gsuite | ~> 0.1.35 |
-
-GSuite Provider must be manually downloaded and installed in `$HOME/.terraform.d/plugins`. See GSuite Provider GitHub Repo for [Installation instructions](https://github.com/DeviaVir/terraform-provider-gsuite#installation).
+| googleworkspace | ~> 0.7.0 |
 
 ## Credentials
 
 For Folder creation, you must be using a Service Account with a Role granted which allows Folder creation within the location specified by the `parent_id`. If no `parent_id` is specified, the Folder will be created in the root level of the Organization.
 
-For GSuite Group creation you must use a Service Account which is granted GSuite Domain Wide Delegation to impersonate the account specified in the `impersonated_user_email` variable. See GSuite Provider GitHub Repo for [details](https://github.com/DeviaVir/terraform-provider-gsuite#using-a-service-account)
+For GSuite Group creation you must use a Service Account which is granted GSuite Domain Wide Delegation to impersonate the account specified in the `impersonated_user_email` variable and `customer_id` variable provided with your Google Workspace subscription.. See GSuite Provider GitHub Repo for [details](https://github.com/hashicorp/terraform-provider-googleworkspace/blob/main/docs/index.md)
 
 ## Usage
 
@@ -51,6 +49,7 @@ This will create a folder named `bar` within the Folder with Id `folders/1234567
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:-----:|
+| customer\_id | The customer id provided with your Google Workspace subscription. It is found in the admin console under Account Settings | `string` | n/a | yes |
 | domain | Domain name of the Organization in which to create the Folder. | `string` | n/a | yes |
 | folder\_additional\_iam\_member\_bindings | Additional IAM Members who will be granted one or more Roles to the Folder. See examples for expected variable structure. | `map(list(string))` | `{}` | no |
 | folder\_iam\_roles | List of IAM Roles to grant the Group we bind to the GCP Folder | `list(string)` | `[]` | no |
