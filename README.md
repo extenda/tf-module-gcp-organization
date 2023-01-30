@@ -49,6 +49,7 @@ This will create a folder named `bar` within the Folder with Id `folders/1234567
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:-----:|
+| create\_group | Whether to create a GSuite group or not | `bool` | `true` | no |
 | customer\_id | The customer id provided with your Google Workspace subscription. It is found in the admin console under Account Settings | `string` | n/a | yes |
 | domain | Domain name of the Organization in which to create the Folder. | `string` | n/a | yes |
 | folder\_additional\_iam\_member\_bindings | Additional IAM Members who will be granted one or more Roles to the Folder. See examples for expected variable structure. | `map(list(string))` | `{}` | no |
