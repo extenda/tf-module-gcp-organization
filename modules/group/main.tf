@@ -1,9 +1,5 @@
-data "googleworkspace_group" "local" {
-  email  = var.email
-}
-
 resource "googleworkspace_group" "local" {
-  count = var.name != var.mock_name && (data.googleworkspace_group.local.name == null || data.googleworkspace_group.local.description == "Created by Terraform") ? 1 : 0
+  count = var.create_group ? 1 : 0
 
   aliases     = var.group_aliases
   email       = var.email
@@ -12,7 +8,8 @@ resource "googleworkspace_group" "local" {
 }
 
 resource "googleworkspace_group_members" "local_users" {
-  count = var.name != var.mock_name && (data.googleworkspace_group.local.name == null || data.googleworkspace_group.local.description == "Created by Terraform") && (length(var.members.groups) > 0 || length(var.members.users) > 0)? 1 : 0
+  count = var.create_group ? 1 : 0
+
   group_id = googleworkspace_group.local[0].id
 
   dynamic members {
@@ -32,4 +29,8 @@ resource "googleworkspace_group_members" "local_users" {
       role  = "MEMBER"
     }
   }
+
+  depends_on = [
+    googleworkspace_group.local
+  ]
 }

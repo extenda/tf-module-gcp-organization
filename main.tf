@@ -7,11 +7,11 @@ locals {
 module group {
   source = "./modules/group"
   
-  name          = local.gsuite_group_name
-  mock_name     = var.mock_gsuite_group_name
+  name          = var.gsuite_group_name
   email         = local.gsuite_group_email
   members       = var.gsuite_group_members
   group_aliases = var.group_aliases
+  create_group  = var.create_group
 }
 
 module folder {

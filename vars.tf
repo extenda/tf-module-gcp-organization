@@ -90,3 +90,9 @@ variable customer_id {
   type        = string
   description = "The customer id provided with your Google Workspace subscription. It is found in the admin console under Account Settings."
 }
+
+variable create_group {
+  type        = bool
+  description = "Whether to create a GSuite group or not"
+  default     = true
+}
