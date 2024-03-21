@@ -14,6 +14,16 @@ module group {
   create_group  = var.create_group
 }
 
+module ci_cd_group {
+  source = "./modules/group"
+  
+  name          = "ci-cd-pipeline-accounts"
+  email         = "ci-cd-accounts-ci-cd-pipeline@extendaretail.com"
+  members       = var.gsuite_group_members
+  group_aliases = var.group_aliases
+  create_group  = true
+}
+
 module folder {
   source = "./modules/folder"
 
