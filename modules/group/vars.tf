@@ -34,3 +34,9 @@ variable create_group {
   type        = bool
   description = "Whether to create a GSuite group or not"
 }
+
+variable manage_members {
+  type        = bool
+  default     = true
+  description = "Whether to manage members here or not"
+}

@@ -8,7 +8,7 @@ resource "googleworkspace_group" "local" {
 }
 
 resource "googleworkspace_group_members" "local_users" {
-  count = var.create_group ? 1 : 0
+  count = var.create_group && var.manage_members ? 1 : 0
 
   group_id = googleworkspace_group.local[0].id
 
